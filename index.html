@@ -34,6 +34,19 @@
 </head>
 
 <body id="fullsingle" class="page-template-page-fullsingle-split">
+<script>
+	async function myLocation(){
+		const response = await fetch('https://nomadlist.com/@frank.json');
+		var data = await response.json();
+		var city = data.location.now.city + ", " + data.location.now.country;
+		console.log(city);
+		
+	var paragraph = document.getElementById("place");
+	paragraph.textContent = city;
+	}
+		
+	myLocation()
+</script>
 
 <div class="fs-split">
 
@@ -62,6 +75,8 @@
 				<p>My two passions in live are traveling and technology. I love solving problems.</p>
 				&nbsp;
 				<p>When I'm not working I'm traveling. I'm always ready to immerse myself in an unfamiliar place and make some friends along the way.</p>
+				&nbsp;
+				<p>Right now you can find me wandering around <span id="place">somewhere awesome</span>.</p>
 
 			</div>
 
